@@ -16,3 +16,7 @@ I have no ideal and hope you guys help me
 # Plan
 
 Improve GUI and code
+
+# Need to do
+
+Add entry to enter size Sudoku
