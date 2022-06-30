@@ -91,3 +91,6 @@ class Sudoku():
 
 	def getCell(self, row ,column):
 		return self.matrix[row][column]
+
+	def getSize(self):
+		return self.size
