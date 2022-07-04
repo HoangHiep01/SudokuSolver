@@ -11,7 +11,7 @@ I have try to make gui with tkinter lib and it pretty basic.
 
 # Problem
 
-I have no ideal and hope you guys help me
+I have no idea and hope you guys help me
 
 # Plan
 
