@@ -1,10 +1,10 @@
-from tkinter import Tk, Entry, Button, messagebox, END
+from tkinter import Tk, Entry, Button, messagebox, END, LabelFrame
 from Sudoku import Sudoku
 from numpy import zeros
 
 root = Tk()
 root.title("Sudoku Solver")
-root.geometry("250x250")
+root.geometry("300x300")
 matrix = []
 
 
@@ -53,18 +53,66 @@ def clear():
 		cell.delete("0", END)
 
 # make screen
+frame1 = LabelFrame(root)
+frame1.grid(row=0, column=0, padx=5, pady=5)
+
+frame2 = LabelFrame(root)
+frame2.grid(row=0, column=1, padx=5, pady=5)
+
+frame3 = LabelFrame(root)
+frame3.grid(row=0, column=2, padx=5, pady=5)
+
+frame4 = LabelFrame(root)
+frame4.grid(row=1, column=0, padx=5, pady=5)
+
+frame5 = LabelFrame(root)
+frame5.grid(row=1, column=1, padx=1, pady=1)
+
+frame6 = LabelFrame(root)
+frame6.grid(row=1, column=2, padx=1, pady=1)
+
+frame7 = LabelFrame(root)
+frame7.grid(row=2, column=0, padx=1, pady=1)
+
+frame8 = LabelFrame(root)
+frame8.grid(row=2, column=1, padx=1, pady=1)
+
+frame9 = LabelFrame(root)
+frame9.grid(row=2, column=2, padx=1, pady=1)
+
 for i in range(9):
 	for j in range(9):
-		cell = Entry(root, width=3)
-		cell.grid(row=i, column=j, padx=2, pady=2)
+		if i < 3:
+			if j < 3:
+				cell = Entry(frame1, width=3)
+			elif j < 6:
+				cell = Entry(frame2, width=3)
+			else:
+				cell = Entry(frame3, width=3)
+		elif i < 6:
+			if j < 3:
+				cell = Entry(frame4, width=3)
+			elif j < 6:
+				cell = Entry(frame5, width=3)
+			else:
+				cell = Entry(frame6, width=3)
+		else:
+			if j < 3:
+				cell = Entry(frame7, width=3)
+			elif j < 6:
+				cell = Entry(frame8, width=3)
+			else:
+				cell = Entry(frame9, width=3)
+
+		cell.grid(row=i%3, column=j%3, padx=2, pady=2)
 		matrix.append(cell)
 
 
 solvebtn = Button(root, text="Solve", command=solver)
-solvebtn.grid(row=9, column=1, columnspan=3)
+solvebtn.grid(row=9, column=0, columnspan=1)
 
 clearbtn = Button(root, text="Clear", command=clear)
-clearbtn.grid(row=9, column=5, columnspan=3)
+clearbtn.grid(row=9, column=2, columnspan=1)
 
 
 root.mainloop()
